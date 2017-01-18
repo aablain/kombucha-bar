@@ -9,7 +9,9 @@ import { Component } from '@angular/core';
       <h3>{{currentKeg.brand}}</h3>
       <p>{{currentKeg.sugar}}<span>g of sugar</span></p>
       <h4><span>$</span>{{currentKeg.price}}</h4>
+      <p>{{currentKeg.amountLeft}} Pints Left</p>
       <button (click)="editKeg(currentKeg)">Edit!</button>
+      <button (click)="minusOne(currentKeg)">Serve a Pint</button>
     </div>
     <hr>
     <div>
@@ -40,6 +42,10 @@ export class AppComponent {
 
   editKeg(clickedKeg) {
     this.selectedKeg = clickedKeg;
+  }
+
+  minusOne(thisKeg) {
+    thisKeg.amountLeft = thisKeg.amountLeft - 1;
   }
 }
 
