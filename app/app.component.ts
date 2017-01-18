@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
   <div class="container">
-    <div *ngFor="let currentKeg of kegs">
+    <div *ngFor="let currentKeg of kegs" class="item">
       <h1>{{currentKeg.name}}</h1>
       <h3>{{currentKeg.brand}}</h3>
       <p>{{currentKeg.sugar}}<span>g of sugar</span></p>
