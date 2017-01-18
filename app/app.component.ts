@@ -9,6 +9,19 @@ import { Component } from '@angular/core';
       <h3>{{currentKeg.brand}}</h3>
       <p>{{currentKeg.sugar}}<span>g of sugar</span></p>
       <h4><span>$</span>{{currentKeg.price}}</h4>
+      <button (click)="editKeg(currentKeg)">Edit!</button>
+    </div>
+    <hr>
+    <div>
+      <h3>Edit Keg</h3>
+      <label>Enter Keg Name:</label>
+        <input [(ngModel)]="selectedKeg.name">
+      <label>Enter Keg Brand:</label>
+        <input [(ngModel)]="selectedKeg.brand">
+      <label>Enter Keg Sugar Content:</label>
+        <input [(ngModel)]="selectedKeg.sugar">
+      <label>Enter Keg Price:</label>
+        <input [(ngModel)]="selectedKeg.price">
     </div>
   </div>
 `
@@ -23,6 +36,11 @@ export class AppComponent {
     new Keg("Blood Orange", "bucha", 24, 5),
     new Keg("Asian Pear", "Kombucha Wonder Drink", 8, 6)
   ];
+  selectedKeg: Keg = this.kegs[0];
+
+  editKeg(clickedKeg) {
+    this.selectedKeg = clickedKeg;
+  }
 }
 
 export class Keg {
