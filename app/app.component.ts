@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
       <h1>{{currentKeg.name}}</h1>
       <h3>{{currentKeg.brand}}</h3>
       <p>{{currentKeg.sugar}}<span>g of sugar</span></p>
-      <h4><span>$</span>{{currentKeg.price}}</h4>
+      <h4 [class]="priceColor(currentKeg)"><span>$</span>{{currentKeg.price}}</h4>
       <p>{{currentKeg.amountLeft}} Pints Left</p>
       <button (click)="editKeg(currentKeg)">Edit!</button>
       <button (click)="minusOne(currentKeg)">Serve a Pint</button>
@@ -52,6 +52,14 @@ export class AppComponent {
     new Keg("Asian Pear", "Kombucha Wonder Drink", 8, 6)
   ];
   selectedKeg: Keg = this.kegs[0];
+
+  priceColor(currentKeg){
+    if (currentKeg.price > 5){
+      return "expensive";
+    } else if (currentKeg.price <= 5) {
+      return "cheap";
+    }
+  }
 
   editKeg(clickedKeg) {
     this.selectedKeg = clickedKeg;
