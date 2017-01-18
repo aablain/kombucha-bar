@@ -25,6 +25,19 @@ import { Component } from '@angular/core';
       <label>Enter Keg Price:</label>
         <input [(ngModel)]="selectedKeg.price">
     </div>
+    <div>
+      <form>
+        <label>Drink Name:</label>
+        <input #name placeholder="name">
+        <label>Brand Name:</label>
+        <input #brand placeholder="brand">
+        <label>Sugar Amount:</label>
+        <input #sugar placeholder="sugar" type="number">
+        <label>Price per Pint:</label>
+        <input #price placeholder="price" type="number">
+        <button (click)="newKeg(name.value, brand.value, sugar.value, price.value)">Add New Drink!</button>
+      </form>
+    </div>
   </div>
 `
 })
@@ -46,6 +59,15 @@ export class AppComponent {
 
   minusOne(thisKeg) {
     thisKeg.amountLeft = thisKeg.amountLeft - 1;
+  }
+
+  newKeg(name, brand, sugar, price) {
+    console.log(name);
+    console.log(brand);
+    console.log(sugar);
+    console.log(price);
+    alert('hey!');
+    this.kegs.push(new Keg(name, brand, sugar, price));
   }
 }
 
