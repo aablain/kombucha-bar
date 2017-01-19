@@ -5,13 +5,19 @@ import { Component } from '@angular/core';
   template: `
   <div class="container">
     <div *ngFor="let currentKeg of kegs" class="item">
-      <h1>{{currentKeg.name}}</h1>
-      <h3>{{currentKeg.brand}}</h3>
-      <p>{{currentKeg.sugar}}<span>g of sugar</span></p>
-      <h4 [class]="priceColor(currentKeg)"><span>$</span>{{currentKeg.price}}</h4>
-      <p>{{currentKeg.amountLeft}} Pints Left</p>
-      <button (click)="editKeg(currentKeg)">Edit!</button>
-      <button (click)="minusOne(currentKeg)">Serve a Pint</button>
+      <div class="textgoeshere">
+        <h1>{{currentKeg.name}}</h1>
+        <h3>{{currentKeg.brand}}</h3>
+        <p>{{currentKeg.sugar}}<span>g of sugar</span></p>
+        <h4 [class]="priceColor(currentKeg)"><span>$</span>{{currentKeg.price}}</h4>
+        <p>{{currentKeg.amountLeft}} Pints Left</p>
+        <button (click)="editKeg(currentKeg)">Edit!</button>
+        <button (click)="minusOne(currentKeg)" (click)="checkBelow(currentKeg)">Serve a Pint</button>
+        <div class="keg"></div>
+      </div>
+      <div class="fillit">
+
+      </div>
     </div>
     <hr>
     <div>
@@ -27,6 +33,7 @@ import { Component } from '@angular/core';
     </div>
     <div>
       <form>
+      <h1>Add New Keg</h1>
         <label>Drink Name:</label>
         <input #name placeholder="name">
         <label>Brand Name:</label>
@@ -69,12 +76,16 @@ export class AppComponent {
     thisKeg.amountLeft = thisKeg.amountLeft - 1;
   }
 
+  checkBelow(thisKeg) {
+    if (thisKeg.amountLeft < 10) {
+      return alert("Warning!  Keg needs to be replaced soon.");
+    }
+  }
   newKeg(name, brand, sugar, price) {
     console.log(name);
     console.log(brand);
     console.log(sugar);
     console.log(price);
-    alert('hey!');
     this.kegs.push(new Keg(name, brand, sugar, price));
   }
 }

@@ -1,6 +1,10 @@
 
 /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIiwic291cmNlcyI6WyJzdHlsZXMuY3NzIl0sInNvdXJjZXNDb250ZW50IjpbIiJdLCJmaWxlIjoic3R5bGVzLmNzcyIsInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9 */
 
+body {
+  background-
+}
+
 .container {
   /*width: 100%;*/
   display: flex;
@@ -21,6 +25,23 @@
   align-items: center;
 }
 
+/*.textgoeshere {
+  flex-basis: 48%;
+  margin: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  text-align:
+}*/
+
+
+.keg {
+  width: 30px;
+  border-radius: 100%;
+  background-color: brown;
+}
+
 .item:nth-of-type(3n) {
   background-color: #48C9B0;
 }
@@ -36,6 +57,7 @@
 .expensive {
   color: red;
 }
+
 
 .cheap {
   color: green;
